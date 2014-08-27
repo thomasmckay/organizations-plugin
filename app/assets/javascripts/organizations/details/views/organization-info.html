@@ -1,0 +1,49 @@
+<span page-title ng-model="organization">{{ 'Organization information for:' | translate }} {{ organization.name }}</span>
+<div alch-alert success-messages="successMessages" error-messages="errorMessages"></div>
+
+<div class="details fl">
+  <section>
+    <h4 translate>Basic Information</h4>
+
+    <div class="detail">
+      <span class="info-label" translate>Name</span>
+      <span class="info-value"
+            alch-edit-text="organization.name"
+            on-save="save(organization)"
+            readonly="organization.readonly">
+      </span>
+    </div>
+
+    <div class="detail">
+      <span class="info-label" translate>Label</span>
+      <span class="info-value"
+            alch-edit-text="organization.label"
+            readonly="true">
+      </span>
+    </div>
+
+    <div class="detail">
+      <span class="info-label" translate>Description</span>
+      <span class="info-value"
+            alch-edit-textarea="organization.description"
+            on-save="save(organization)"
+            readonly="organization.readonly">
+      </span>
+    </div>
+
+    <div class="detail">
+      <span class="info-label" translate>Default Service Level</span>
+      <span class="info-value"
+            alch-edit-select="organization.service_level"
+            readonly="denied('edit_organizations', organization)"
+            selector="organization.service_level"
+            options="organization.service_levels"
+            options-format="option for option in options"
+            deletable="true"
+            on-delete="clearServiceLevel()"
+            on-save="save(organization)">
+      </span>
+    </div>
+
+  </section>
+</div>
