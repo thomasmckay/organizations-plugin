@@ -124,10 +124,24 @@ angular.module('Organizations.organizations').config(['$stateProvider', function
         templateUrl: 'organizations/details/views/organization-users-table.html'
     });
 
-    $stateProvider.state('organizations.details.user-groups', {
+    $stateProvider.state('organizations.details.templates', {
         abstract: true,
         collapsed: true,
-        templateUrl: 'organizations/details/views/organization-user-groups.html'
+        templateUrl: 'organizations/details/views/organization-templates.html'
+    })
+    .state('organizations.details.templates.list', {
+        url: '/templates',
+        permission: 'view_organizations',
+        collapsed: true,
+        controller: 'OrganizationTemplatesController',
+        templateUrl: 'organizations/details/views/organization-templates-table.html'
+    })
+    .state('organizations.details.templates.add', {
+        url: '/templates/add',
+        permission: 'view_organizations',
+        collapsed: true,
+        controller: 'OrganizationAddTemplatesController',
+        templateUrl: 'organizations/details/views/organization-templates-table.html'
     });
 
     $stateProvider.state("organizations.bulk-actions", {

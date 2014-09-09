@@ -49,16 +49,16 @@
           Permissions
         </a>
       </li>
+      <li ng-class="{active: stateIncludes('organizations.details.templates')}">
+        <a translate
+           ui-sref="organizations.details.permissions({organizationId: organization.id})">
+          Provisioning Templates
+        </a>
+      </li>
       <li ng-class="{active: stateIncludes('organizations.details.users')}">
         <a translate
            ui-sref="organizations.details.users.list({organizationId: organization.id})">
           Users
-        </a>
-      </li>
-      <li ng-class="{active: stateIncludes('organizations.details.user-groups')}">
-        <a translate
-           ui-sref="organizations.details.user-groups.list({organizationId: organization.id})">
-          User Groups
         </a>
       </li>
     </ul>
